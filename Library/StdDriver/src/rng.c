@@ -48,7 +48,7 @@ typedef enum _RNG_KEY_SIZE
  */
 static void RNG_BasicConfig()
 {
-    int32_t i;
+    int32_t i = 0;
     int32_t timeout = 0x1000000;
 
     /* Enable TRNG & PRNG */

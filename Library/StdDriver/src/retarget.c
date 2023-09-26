@@ -328,9 +328,9 @@ label:
 __WEAK uint32_t ProcessHardFault(uint32_t lr, uint32_t msp, uint32_t psp)
 {
     uint32_t *sp = NULL;
-    uint32_t inst, addr, taddr, tdata;
-    int32_t secure;
-    uint32_t rm, rn, rt, imm5, imm8;
+    uint32_t inst = 0, addr = 0, taddr = 0, tdata = 0;
+    int32_t secure = 0;
+    uint32_t rm = 0, rn = 0, rt = 0, imm5 = 0, imm8 = 0;
 
     /* It is casued by hardfault. Just process the hard fault */
     /* TODO: Implement your hardfault handle code here */
@@ -375,10 +375,10 @@ __WEAK uint32_t ProcessHardFault(uint32_t lr, uint32_t msp, uint32_t psp)
     */
 
 
-    printf("HardFault @ 0x%08x\n", sp[6]);
     /* Get the instruction caused the hardfault */
     if( sp != NULL )
     {
+        printf("HardFault @ 0x%08x\n", sp[6]);
         addr = sp[6];
         inst = M16(addr);
     }

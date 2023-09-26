@@ -1479,11 +1479,11 @@ int32_t ECC_GenerateSecretZ_KS(CRPT_T *crpt, E_ECC_CURVE ecc_curve, KS_MEM_Type 
 
 static int32_t run_ecc_codec(CRPT_T *crpt, uint32_t mode)
 {
-    uint32_t eccop;
-    int32_t i32TimeOutCnt;
+    uint32_t eccop = 0;
+    int32_t i32TimeOutCnt = 0;
 #ifdef ECC_SCA_PROTECT
-    uint32_t x1[18], y1[18], ctl;
-    int32_t i;
+    uint32_t x1[18] = { 0 }, y1[18] = { 0 }, ctl = 0;
+    int32_t i = 0;
 #endif
 
     eccop = mode & CRPT_ECC_CTL_ECCOP_Msk;

@@ -43,7 +43,7 @@
 uint32_t USPI_Open(USPI_T *uspi, uint32_t u32MasterSlave, uint32_t u32SPIMode,  uint32_t u32DataWidth, uint32_t u32BusClock)
 {
     uint32_t u32ClkDiv = 0ul;
-    uint32_t u32Pclk;
+    uint32_t u32Pclk = 0ul;
     uint32_t u32UspiClk = 0ul;
 
     if(uspi == (USPI_T *)USPI0)

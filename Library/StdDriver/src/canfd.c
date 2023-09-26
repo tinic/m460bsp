@@ -448,9 +448,9 @@ static void CANFD_GetSegments(uint32_t u32NominalBaudRate, uint32_t u32DataBaudR
     int int32P1;
 
     /* get ideal sample point */
-    if (u32NominalBaudRate >= 1000000)     ideal_sp = 0.750;
-    else if (u32NominalBaudRate >= 800000) ideal_sp = 0.800;
-    else                                   ideal_sp = 0.875;
+    if (u32NominalBaudRate >= 1000000)     ideal_sp = 0.750f;
+    else if (u32NominalBaudRate >= 800000) ideal_sp = 0.800f;
+    else                                   ideal_sp = 0.875f;
 
     /* distribute time quanta */
     int32P1 = (int)(u32Ntq * ideal_sp);
@@ -467,9 +467,9 @@ static void CANFD_GetSegments(uint32_t u32NominalBaudRate, uint32_t u32DataBaudR
     if (u32Dtq > 0)
     {
         /* get ideal sample point */
-        if (u32DataBaudRate >= 1000000)     ideal_sp = 0.750;
-        else if (u32DataBaudRate >= 800000) ideal_sp = 0.800;
-        else                             ideal_sp = 0.875;
+        if (u32DataBaudRate >= 1000000)     ideal_sp = 0.750f;
+        else if (u32DataBaudRate >= 800000) ideal_sp = 0.800f;
+        else                                ideal_sp = 0.875f;
 
         /* distribute time quanta */
         int32P1 = (int)(u32Dtq * ideal_sp);
@@ -507,10 +507,10 @@ static uint32_t CANFD_CalculateTimingValues(CANFD_T *psCanfd, uint32_t u32Nomina
 {
     int i32Nclk;
     int i32Nclk2;
-    int i32Ntq;
+    uint32_t i32Ntq;
     int i32Dclk;
     int i32Dclk2;
-    int i32Dtq;
+    uint32_t i32Dtq;
 
     /* observe baud rate maximums */
     if (u32NominalBaudRate > MAX_NOMINAL_BAUDRATE) u32NominalBaudRate = MAX_NOMINAL_BAUDRATE;

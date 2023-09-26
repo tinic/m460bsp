@@ -996,7 +996,7 @@ int32_t FMC_ReadConfig(uint32_t u32Config[], uint32_t u32Count)
   */
 int32_t FMC_WriteConfig(uint32_t u32Config[], uint32_t u32Count)
 {
-    int   i;
+    uint32_t i = 0;
 
     FMC_ENABLE_CFG_UPDATE();
 

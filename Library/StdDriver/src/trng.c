@@ -35,7 +35,7 @@
 int32_t TRNG_Open(void)
 {
     uint32_t u32TimeOutCount = SystemCoreClock; /* 1 second time-out */
-    uint32_t i;
+    uint32_t i = 0;
 
     SYS->IPRST1 |= SYS_IPRST1_TRNGRST_Msk;
     SYS->IPRST1 ^= SYS_IPRST1_TRNGRST_Msk;
@@ -107,7 +107,7 @@ int32_t TRNG_GenWord(uint32_t *u32RndNum)
   * @retval  0   Success
   * @retval  -1  Time-out. TRNG hardware may not be enabled.
   */
-int32_t TRNG_GenBignum(uint8_t u8BigNum[], int32_t i32Len)
+int32_t TRNG_GenBignum(uint8_t u8BigNum[], uint32_t i32Len)
 {
     uint32_t   i, u32Reg, timeout;
 
@@ -141,7 +141,7 @@ int32_t TRNG_GenBignum(uint8_t u8BigNum[], int32_t i32Len)
   * @retval  0   Success
   * @retval  -1  Time-out. TRNG hardware may not be enabled.
   */
-int32_t TRNG_GenBignumHex(char cBigNumHex[], int32_t i32Len)
+int32_t TRNG_GenBignumHex(char cBigNumHex[], uint32_t i32Len)
 {
     uint32_t   i, idx, u32Reg, timeout;
     uint32_t   data;
